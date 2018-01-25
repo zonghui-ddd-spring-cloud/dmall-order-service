@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
+import java.util.Map;
 
 @Service
 public class ShippingService {
@@ -23,6 +24,11 @@ public class ShippingService {
         String url = String.format("http://shipping-service/goods/%s", goodsId);
         return restTemplate.getForObject(url, Shipping.class);
 
+    }
+
+    public Map getInspector() {
+        String url = String.format("http://shipping-service/inspector");
+        return restTemplate.getForObject(url, Map.class);
     }
 
     @SuppressWarnings("unused")

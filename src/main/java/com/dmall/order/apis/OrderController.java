@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/")
@@ -64,5 +65,10 @@ public class OrderController {
   public Shipping getPatientById(@PathVariable("goodsId") String goodsId) {
 
     return shippingService.getShippingDetail(goodsId);
+  }
+
+  @RequestMapping(value = "shippings/inspector", method = RequestMethod.GET, headers = "Accept=application/json")
+  public Map getPatientById() {
+    return shippingService.getInspector();
   }
 }
